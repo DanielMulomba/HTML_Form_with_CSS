@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><Daniel Mulomba>'s Awesome Web Page.</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Registration & Preferences Form</h1>
+    <p class="lead">Fill all fields. This form demonstrates every form field type covered in class.</p>
+
+    <form id="mainForm" enctype="multipart/form-data" novalidate>
+      <!-- Text inputs -->
+      <div class="row">
+        <label for="fullname">Full name</label>
+        <input id="fullname" name="fullname" type="text" placeholder="John Doe" required>
+      </div>
+
+      <div class="row two-col">
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" placeholder="••••••••" required>
+        </div>
+      </div>
+
+      <div class="row two-col">
+        <div>
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" placeholder="+1 555 555 5555">
+        </div>
+        <div>
+          <label for="website">Website</label>
+          <input id="website" name="website" type="url" placeholder="https://">
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="search">Search term</label>
+        <input id="search" name="search" type="search" placeholder="what are you searching for?">
+      </div>
+
+      <!-- Number / Range -->
+      <div class="row two-col">
+        <div>
+          <label for="age">Age</label>
+          <input id="age" name="age" type="number" min="0" max="120" step="1" value="25">
+        </div>
+        <div>
+          <label for="satisfaction">Satisfaction (range)</label>
+          <input id="satisfaction" name="satisfaction" type="range" min="0" max="10" value="7">
+        </div>
+      </div>
+
+      <!-- Date / Time / Color -->
+      <div class="row three-col">
+        <div>
+          <label for="birthdate">Birth date</label>
+          <input id="birthdate" name="birthdate" type="date">
+        </div>
+        <div>
+          <label for="meeting">Preferred time</label>
+          <input id="meeting" name="meeting" type="time">
+        </div>
+        <div>
+          <label for="favcolor">Favorite color</label>
+          <input id="favcolor" name="favcolor" type="color" value="#1e90ff">
+        </div>
+      </div>
+
+      <!-- Textarea -->
+      <div class="row">
+        <label for="bio">Short bio</label>
+        <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+      </div>
+
+      <!-- Select / datalist -->
+      <div class="row two-col">
+        <div>
+          <label for="country">Country</label>
+          <select id="country" name="country">
+            <option value="">Choose...</option>
+            <option>United States</option>
+            <option>Canada</option>
+            <option>France</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div>
+          <label for="occupation">Occupation (type to suggest)</label>
+          <input list="occupations" id="occupation" name="occupation" placeholder="e.g. designer">
+          <datalist id="occupations">
+            <option value="Student">
+            <option value="Designer">
+            <option value="Developer">
+            <option value="Writer">
+          </datalist>
+        </div>
+      </div>
+
+      <!-- Radio buttons -->
+      <fieldset class="row">
+        <legend>Gender</legend>
+        <label><input type="radio" name="gender" value="female"> Female</label>
+        <label><input type="radio" name="gender" value="male"> Male</label>
+        <label><input type="radio" name="gender" value="other"> Other</label>
+        <label><input type="radio" name="gender" value="prefer_not"> Prefer not to say</label>
+      </fieldset>
+
+      <!-- Checkboxes -->
+      <fieldset class="row">
+        <legend>Hobbies (check all that apply)</legend>
+        <label><input type="checkbox" name="hobby_reading" value="reading"> Reading</label>
+        <label><input type="checkbox" name="hobby_travel" value="travel"> Travel</label>
+        <label><input type="checkbox" name="hobby_music" value="music"> Music</label>
+        <label><input type="checkbox" name="hobby_sport" value="sport"> Sport</label>
+      </fieldset>
+
+      <!-- File upload -->
+      <div class="row">
+        <label for="avatar">Upload a small avatar (optional)</label>
+        <input id="avatar" name="avatar" type="file" accept="image/*">
+      </div>
+
+      <!-- Hidden -->
+      <input type="hidden" name="formId" value="htmlForm_v1">
+
+      <!-- Buttons -->
+      <div class="row buttons">
+        <button type="reset" class="btn secondary">Reset</button>
+        <button type="submit" class="btn primary">Submit & See Results</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

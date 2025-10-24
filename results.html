@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><Daniel Mulomba>'s Awesome Web Page.</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="styles.css">
+  <style>
+    /* small overrides for results page */
+    .results-container { max-width: 880px; margin: 36px auto; background:#fff; padding:24px; border-radius:12px; box-shadow:0 8px 30px rgba(17,34,51,0.06); }
+    .results-grid { display:grid; grid-template-columns: 1fr 2fr; gap:12px; align-items:start; }
+    .result-label { font-weight:700; color:#0b3a5a; }
+    .result-value { background:#f7fbff; padding:10px 12px; border-radius:8px; border:1px solid #e1eef8; }
+    .top-actions { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; gap:12px; }
+    .back-link { text-decoration:none; background:#0b63b8; color:white; padding:8px 12px; border-radius:8px; font-weight:700; }
+    .empty-note { color:#7a8da0; font-style:italic; }
+  </style>
+</head>
+<body>
+  <main class="container results-container">
+    <div class="top-actions">
+      <h1>Submitted Form Results</h1>
+      <div>
+        <a class="back-link" href="index.html">← Back to Form</a>
+      </div>
+    </div>
+
+    <div id="resultsArea">
+      <!-- JS will populate here -->
+    </div>
+
+    <footer style="margin-top:18px; color:#7a8da0; font-size:0.95rem;">
+      Note: data loaded from localStorage. Clear storage to reset.
+    </footer>
+  </main>
+
+  <script>
+    // Read form data from localStorage
+    const raw = localStorage.getItem('htmlFormData');
+    const resultsArea = document.getElementById('resultsArea');
+
+    if (!raw) {
+      resultsArea.innerHTML = '<p class="empty-note">No form data found. Please fill and submit the form from <a href="index.html">index.html</a>.</p>';
+    } else {
+      const data = JSON.parse(raw);
+
+      // Build a table-like display
+      const container = document.createElement('div');
+      container.className = 'results-grid';
+
+      // We'll iterate keys in a friendly order (preferred fields first)
+      const order = ['fullname','email','phone','website','age','birthdate','meeting','favcolor','country','occupation','gender','bio','avatarName','formId'];
+      const used = new Set();
+
+      function addRow(label, value) {
+        const keyLabel = document.createElement('div');
+        keyLabel.className = 'result-label';
+        keyLabel.textContent = label;
+        const valDiv = document.createElement('div');
+        valDiv.className = 'result-value';
+        valDiv.textContent = value || '—';
+        container.appendChild(keyLabel);
+        container.appendChild(valDiv);
+      }
+
+      // Ordered first
+      order.forEach(k => {
+        if (data[k] !== undefined) {
+          addRow(k, Array.isArray(data[k]) ? data[k].join(', ') : data[k]);
+          used.add(k);
+        }
+      });
+
+      // Add remaining keys
+      for (const k in data) {
+        if (!used.has(k)) addRow(k, Array.isArray(data[k]) ? data[k].join(', ') : data[k]);
+      }
+
+      resultsArea.appendChild(container);
+    }
+  </script>
+</body>
+</html>
