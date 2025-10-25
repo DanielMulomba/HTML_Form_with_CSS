@@ -12,48 +12,65 @@
     <p>Please fill in all the fields below.</p>
 
     <form action="results.html" method="GET" enctype="multipart/form-data">
+      <!-- First Name -->
       <div class="row">
         <label>First Name
           <input type="text" name="fname" id="fname" placeholder="First Name" required>
         </label>
       </div>
 
+      <!-- Last Name -->
+      <div class="row">
+        <label>Last Name
+          <input type="text" name="lname" id="lname" placeholder="Last Name" required>
+        </label>
+      </div>
+
+      <!-- Email -->
       <div class="row">
         <label>Email
           <input type="email" name="email" id="email" placeholder="Email" required>
         </label>
       </div>
 
+      <!-- Age -->
       <div class="row">
         <label>Age
           <input type="number" name="age" id="age" min="18" max="130" step="1" placeholder="Enter Age" required>
         </label>
       </div>
 
+      <!-- Birthday -->
       <div class="row">
         <label>Birthday
           <input type="date" name="birthday" id="birthday" required>
         </label>
       </div>
 
+      <!-- Phone -->
       <div class="row">
         <label>Phone
           <input type="tel" name="phone" id="phone" placeholder="+1 555 555 5555">
         </label>
       </div>
 
+      <!-- Favorite Season -->
       <fieldset class="row">
         <legend>Favorite Season</legend>
         <label><input type="checkbox" name="winter"> Winter</label>
+        <label><input type="checkbox" name="spring"> Spring</label>
         <label><input type="checkbox" name="summer"> Summer</label>
+        <label><input type="checkbox" name="fall"> Fall</label>
       </fieldset>
 
+      <!-- Night or Day -->
       <fieldset class="row">
         <legend>Do you prefer Night or Day?</legend>
         <label><input type="radio" name="preference" value="Night"> Night</label>
         <label><input type="radio" name="preference" value="Day"> Day</label>
       </fieldset>
 
+      <!-- Favorite Weekday -->
       <div class="row">
         <label for="faveDay">Favorite Weekday</label>
         <select name="faveDay" id="faveDay" multiple>
@@ -67,24 +84,21 @@
         </select>
       </div>
 
+      <!-- Password -->
       <div class="row">
         <label>Password
           <input type="password" name="password" id="password" placeholder="Password" required>
         </label>
       </div>
 
+      <!-- Website -->
       <div class="row">
         <label>Website
           <input type="url" name="website" id="website" placeholder="https://">
         </label>
       </div>
 
-      <div class="row">
-        <label>Favorite Color
-          <input type="color" name="favecolor" id="favecolor">
-        </label>
-      </div>
-
+      <!-- Opinion -->
       <div class="row">
         <label for="opinion">Tell us what you think</label>
         <textarea name="opinion" id="opinion" rows="4" placeholder="Share your thoughts..."></textarea>
@@ -95,8 +109,10 @@
         <input type="file" name="fileUpload" id="fileUpload">
       </div>
 
+      <!-- Hidden Field -->
       <input type="hidden" name="sessionId" value="secretRandomSessionValue">
 
+      <!-- Buttons -->
       <div class="row buttons">
         <button type="reset">Reset</button>
         <button type="submit">Submit</button>
